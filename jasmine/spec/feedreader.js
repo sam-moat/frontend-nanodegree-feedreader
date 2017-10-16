@@ -91,14 +91,14 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-        beforeEach(function(done) {
-          loadFeed(function() {
-            done();
-          });
-        });
+
+         //credit: https://discussions.udacity.com/t/asynchronous-testing-not-working/203874/6
+         beforeEach(function(done) {
+   loadFeed(0, done);
+ });
 
         it('has at least a single .entry element within the .feed container', function(done) {
-            expect();
+            expect($('.entry h2').length).not.toBe(0);
            done();
         });
 
@@ -106,11 +106,12 @@ $(function() {
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function(){
 
-
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-
+         //credit: https://discussions.udacity.com/t/finished-project/195129/16
+         // credit: https://discussions.udacity.com/t/p6-new-feed-selection-test-question-problem/15562/16
+         //https://discussions.udacity.com/t/new-feed-selection-question/16274/16
       });
 }());
