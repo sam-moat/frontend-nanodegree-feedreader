@@ -103,15 +103,34 @@ $(function() {
         });
 
 });
-    /* TODO: Write a new test suite named "New Feed Selection" */
-    describe('New Feed Selection', function(){
 
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
-         //credit: https://discussions.udacity.com/t/finished-project/195129/16
-         // credit: https://discussions.udacity.com/t/p6-new-feed-selection-test-question-problem/15562/16
-         //https://discussions.udacity.com/t/new-feed-selection-question/16274/16
-      });
+
+ /* TODO: Write a new test suite named "New Feed Selection" */
+    describe('New Feed Selection', function() {
+
+      /* TODO: Write a test that ensures when a new feed is loaded
+       * by the loadFeed function that the content actually changes.
+       * Remember, loadFeed() is asynchronous.
+       */
+       //credit:https://discussions.udacity.com/t/p6-new-feed-selection-test-question-problem/15562/15
+        var feedContent;
+
+        beforeEach(function(done) {
+            loadFeed(1, function() {
+                feedContent = $('.feed').html();
+
+                done();
+            });
+        });
+
+        it('when a new feed is loaded by the loadFeed function, the content actually changes', function(done) {
+
+            loadFeed(2, function() {
+                expect(feedContent).not.toEqual($('.feed').html());
+                done();
+            });
+        });
+    });
+
+
 }());
